@@ -1,0 +1,6 @@
+CREATE TABLE `student` (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `first_name` VARCHAR(255) DEFAULT NULL,
+    `surname` VARCHAR(255) DEFAULT NULL,
+    `email` VARCHAR(255) DEFAULT NULL
+);
