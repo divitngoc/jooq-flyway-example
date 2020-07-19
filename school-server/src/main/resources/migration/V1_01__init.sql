@@ -1,6 +1,14 @@
-CREATE TABLE `student` (
+CREATE TABLE `author` (
     `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `first_name` VARCHAR(255) DEFAULT NULL,
-    `surname` VARCHAR(255) DEFAULT NULL,
+    `name` VARCHAR(255) DEFAULT NULL,
     `email` VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE `book` (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `title` VARCHAR(255) DEFAULT NULL,
+    `author_id` INT DEFAULT NULL,
+    CONSTRAINT fk_book_author_id FOREIGN KEY (author_id)
+        REFERENCES author (id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
