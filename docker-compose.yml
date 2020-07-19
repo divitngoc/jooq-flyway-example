@@ -1,20 +1,12 @@
 version: '3'
 
 services:
-  flyway:
-    container_name: school_flyway
-    image: flyway/flyway
-    command: -url=jdbc:mysql://db -schemas=school -user=root -password=password -connectRetries=20 migrate
-    volumes:
-      - ./school-server/src/main/resources/migration:/flyway/sql
-    depends_on:
-      - db
-
   db:
-    container_name: school_db
+    container_name: book_db
     image: mysql:8.0.20
     environment:
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=book
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - 3306:3306
