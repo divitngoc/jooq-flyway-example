@@ -19,14 +19,14 @@ public class BookDao {
 
     public Flux<Book> fetchAllBooks() {
         return Flux.from(ctx.selectFrom(Tables.BOOK))
-                .map(b -> b.into(Book.class));
+                   .map(b -> b.into(Book.class));
     }
 
     public Mono<Book> insertBook(Book book) {
         return Mono.from(ctx.insertInto(Tables.BOOK).values(book))
-                .switchIfEmpty(Mono.defer(() -> Mono.error(new RuntimeException("Error with insert"))))
-                .doOnNext(id -> book.setId(id))
-                .thenReturn(book);
+                   .switchIfEmpty(Mono.defer(() -> Mono.error(new RuntimeException("Error with insert"))))
+                   .doOnNext(id -> book.setId(id))
+                   .thenReturn(book);
     }
 
 }
