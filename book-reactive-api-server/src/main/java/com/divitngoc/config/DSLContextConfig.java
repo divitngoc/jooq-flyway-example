@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DSLConfig {
+public class DSLContextConfig {
 
     @Bean
     public DSLContext dslContext(final ConnectionFactory connectionFactory) {
