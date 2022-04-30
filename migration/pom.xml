@@ -2,11 +2,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.divitngoc</groupId>
 	<artifactId>migration</artifactId>
 	<version>1.0.0</version>
-	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>11</java.version>
@@ -16,14 +14,14 @@
 		<flyway.user>root</flyway.user>
 		<flyway.password>password</flyway.password>
 		<flyway.schemas>library</flyway.schemas>
-		<flyway-core.version>5.2.3</flyway-core.version>
-		<mysql.version>8.0.20</mysql.version>
+		<flyway-core.version>8.5.9</flyway-core.version>
+		<mysql.version>8.0.28</mysql.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
+			<artifactId>flyway-mysql</artifactId>
 			<version>${flyway-core.version}</version>
 		</dependency>
 	</dependencies>
@@ -33,6 +31,7 @@
 			<plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
+				<version>8.5.10</version>
 				<dependencies>
 					<dependency>
 						<groupId>mysql</groupId>
@@ -43,5 +42,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
